@@ -1,0 +1,20 @@
+
+<div class="jumbotron">
+    <h1>To Do</h1>
+</div>
+
+<div>
+    <form method="POST" action="/">
+        {% csrf_token %}
+        {{ form.title }}
+        <input type="submit" name="Create Task">
+    </form>
+</div>
+
+<ul>
+    {% for task in tasks %}
+        <li>
+            <p>{{ task.title }}</p>
+        </li>
+    {% endfor %}
+</ul>
