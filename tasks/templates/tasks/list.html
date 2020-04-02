@@ -14,7 +14,15 @@
 <ul>
     {% for task in tasks %}
         <li>
-            <p>{{ task.title }}</p>
+            <p>
+                {% if task.complete == True %}
+                    <strike>{{ task.title }}</strike>
+                {% else %}
+                    <span>{{ task.title }}</span>
+                {% endif %}
+                <a href="{% url 'update' task.id %}">Update</a>
+                <a href="{% url 'delete' task.id %}">Delete</a>
+            </p>
         </li>
     {% endfor %}
 </ul>
